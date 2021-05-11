@@ -1,0 +1,33 @@
+.address-box {
+  width: 100%;
+  min-width: 200px;
+}
+
+.state-box,
+.country-box,
+.citizenship-box {
+  width: 30%;
+  min-width: 200px;
+}
+
+.address-box mat-form-field {
+  width: 80%;
+}
+
+.state-box mat-form-field,
+.country-box mat-form-field,
+.citizenship-box mat-form-field {
+  width: 80%;
+}
+
+fieldset {
+  border: 2px solid black;
+
+}
+
+legend {
+  width: auto;
+  color: rgb(51, 86, 247);
+  margin-left: 1rem;
+  padding: 0 10px;
+}

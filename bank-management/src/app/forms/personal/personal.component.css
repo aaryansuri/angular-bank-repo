@@ -1,0 +1,45 @@
+.name-box,
+.password-box,
+.email-box,
+.gender-box,
+.contact-box,
+.dob-box {
+  width: 30%;
+  min-width: 200px;
+}
+
+.name-box mat-form-field,
+.email-box mat-form-field,
+.marital-box mat-form-field,
+.contact-box mat-form-field,
+.dob-box mat-form-field {
+  width: 80%;
+}
+
+.password-box mat-form-field {
+  width: 80%;
+}
+
+.gender-box {
+  width: 20%;
+  min-width: 200px;
+}
+
+.marital-box {
+  width: 20%;
+  min-width: 200px;
+}
+
+fieldset {
+  border: 2px solid rgb(175, 224, 61);
+}
+
+legend {
+  width: auto;
+  margin-left: 1rem;
+  padding: 0 10px;
+}
+
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 16px;
+}

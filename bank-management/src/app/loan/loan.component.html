@@ -1,0 +1,353 @@
+<mat-horizontal-stepper [linear]="false" #stepper>
+  <!-- [hasError] is to be included-->
+  <mat-step [stepControl]="loanForm" [completed]="loanForm.valid">
+    <form [formGroup]="loanForm">
+      <ng-template matStepLabel>Fill out your loan details</ng-template>
+      <div>
+        <mat-form-field class="col-md-6">
+          <mat-label>Select loan type</mat-label>
+          <mat-select
+            formControlName="type"
+            (ngModelChange)="onLoanTypeChange($event)"
+          >
+            <mat-option value="education">Education</mat-option>
+            <mat-option value="personal">Personal</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="col-md-6">
+          <mat-label>Amount</mat-label>
+          <input matInput type="number" formControlName="amount" />
+          <mat-error
+            *ngIf="
+              !loanForm.get('amount')!.valid && loanForm.get('amount')!.touched
+            "
+          >
+            Enter valid amount
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="col-md-6">
+          <mat-label>Interest</mat-label>
+          <input
+            matInput
+            type="number"
+            formControlName="interest"
+            [disabled]="true"
+            [value]="interest"
+          />
+        </mat-form-field>
+        <mat-form-field class="col-md-6">
+          <mat-label>Apply Date</mat-label>
+          <input
+            matInput
+            formControlName="applyDate"
+            [min]="minDate"
+            [max]="minDate"
+            form
+            [matDatepicker]="picker"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker touchUi #picker></mat-datepicker>
+          <mat-error
+            *ngIf="
+              loanForm.get('applyDate')!.hasError('required') &&
+              loanForm.controls['applyDate'].touched
+            "
+          >
+            Apply Date required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field color="accent" class="col-md-6">
+          <mat-label>Issue Date</mat-label>
+          <input
+            matInput
+            formControlName="issueDate"
+            [min]="minDate"
+            form
+            [matDatepicker]="picker1"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker1"
+          ></mat-datepicker-toggle>
+          <mat-datepicker touchUi #picker1></mat-datepicker>
+          <mat-error
+            *ngIf="
+              loanForm.get('issueDate')!.hasError('required') &&
+              loanForm.controls['issueDate'].touched
+            "
+          >
+            Issue Date required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="col-md-6">
+          <mat-label>Loan Duration</mat-label>
+          <mat-select formControlName="duration">
+            <mat-option *ngFor="let type of durationTypes" [value]="type">
+              {{ type + " years" }}
+            </mat-option>
+          </mat-select>
+          <mat-error
+            *ngIf="
+              !loanForm.get('duration')!.valid &&
+              loanForm.get('duration')!.touched
+            "
+          >
+            Enter duration
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-12">
+        <button
+          type="button"
+          mdbBtn
+          [color]="loanForm.valid ? 'success' : 'danger'"
+          [disabled]="loanForm.invalid"
+          mdbWavesEffect
+          matStepperNext
+        >
+          Next
+        </button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step
+    *ngIf="loanType == 'education'"
+    #estep
+    [hasError]="false"
+    [completed]="true"
+    [stepControl]="educationForm"
+    label="Fill out education loan"
+  >
+    <form [formGroup]="educationForm">
+      <mat-form-field class="col-md-6">
+        <mat-label>Course Name</mat-label>
+        <input matInput formControlName="name" />
+        <mat-error
+          *ngIf="
+            !educationForm.get('name')!.valid &&
+            educationForm.get('name')!.touched
+          "
+        >
+          Course Name required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="col-md-6">
+        <mat-label>Course Fee</mat-label>
+        <input matInput type="number" formControlName="fee" />
+        <mat-error
+          *ngIf="
+            !educationForm.get('fee')!.valid &&
+            educationForm.get('fee')!.touched
+          "
+        >
+          Course Fee required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="col-md-6 mt-2">
+        <mat-label>Father Occupation</mat-label>
+        <input matInput formControlName="occupation" />
+        <mat-error
+          *ngIf="
+            !educationForm.get('occupation')!.valid &&
+            educationForm.get('occupation')!.touched
+          "
+        >
+          Occupation required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="col-md-6 mt-2">
+        <mat-label>Father Total Experience</mat-label>
+        <input matInput type="number" formControlName="exp" />
+        <mat-error
+          *ngIf="
+            !educationForm.get('exp')!.valid &&
+            educationForm.get('exp')!.touched
+          "
+        >
+          Please input experience
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="col-md-6 mt-2">
+        <mat-label>Father’s Exp with Current company</mat-label>
+        <input matInput type="number" formControlName="currentExp" />
+        <mat-error
+          *ngIf="
+            !educationForm.get('currentExp')!.valid &&
+            educationForm.get('currentExp')!.touched
+          "
+        >
+          Please input experience
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="col-md-6 mt-2">
+        <mat-label>Ration Card No</mat-label>
+        <input matInput type="number" formControlName="rationCard" />
+        <mat-error
+          *ngIf="
+            !educationForm.get('rationCard')!.valid &&
+            educationForm.get('rationCard')!.touched
+          "
+        >
+          Please Enter ration card
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="col-md-6 mt-2">
+        <mat-label>Annual Income</mat-label>
+        <input matInput type="number" formControlName="income" />
+        <mat-error
+          *ngIf="
+            !educationForm.get('income')!.valid &&
+            educationForm.get('income')!.touched
+          "
+        >
+          Please enter income
+        </mat-error>
+      </mat-form-field>
+
+      <div class="col-md-12">
+        <button
+          type="button"
+          mdbBtn
+          color="primary"
+          mdbWavesEffect
+          matStepperPrevious
+        >
+          Back
+        </button>
+        <button
+          type="button"
+          mdbBtn
+          [color]="educationForm.valid ? 'success' : 'danger'"
+          [disabled]="educationForm.invalid"
+          mdbWavesEffect
+          matStepperNext
+        >
+          Next
+        </button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step
+    #pstep
+    [hasError]="false"
+    [completed]="true"
+    *ngIf="loanType == 'personal'"
+    [stepControl]="personalForm"
+    label="Fill out personal loan"
+  >
+    <form [formGroup]="personalForm">
+      <mat-form-field class="col-md-6">
+        <mat-label>Annual Income</mat-label>
+        <input matInput type="number" formControlName="income" />
+        <mat-error
+          *ngIf="
+            !personalForm.get('income')!.valid &&
+            personalForm.get('income')!.touched
+          "
+        >
+          Please enter income
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="col-md-6">
+        <mat-label>Company Name</mat-label>
+        <input matInput formControlName="company" />
+        <mat-error
+          *ngIf="
+            !personalForm.get('company')!.valid &&
+            personalForm.get('company')!.touched
+          "
+        >
+          Please enter company
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="col-md-6 mt-2">
+        <mat-label>Designation</mat-label>
+        <input matInput formControlName="designation" />
+        <mat-error
+          *ngIf="
+            !personalForm.get('designation')!.valid &&
+            personalForm.get('designation')!.touched
+          "
+        >
+          Please enter designation
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="col-md-6 mt-2">
+        <mat-label>Total Experience</mat-label>
+        <input matInput type="number" formControlName="totalExp" />
+        <mat-error
+          *ngIf="
+            !personalForm.get('totalExp')!.valid &&
+            personalForm.get('totalExp')!.touched
+          "
+        >
+          Please enter total Experience
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="col-md-6 mt-2">
+        <mat-label>Exp with Current company</mat-label>
+        <input matInput type="number" formControlName="currentExp" />
+        <mat-error
+          *ngIf="
+            !personalForm.get('currentExp')!.valid &&
+            personalForm.get('currentExp')!.touched
+          "
+        >
+          Please enter current experience
+        </mat-error>
+      </mat-form-field>
+
+      <div class="col-md-12">
+        <button
+          type="button"
+          mdbBtn
+          color="primary"
+          mdbWavesEffect
+          matStepperPrevious
+        >
+          Back
+        </button>
+        <button
+          type="button"
+          mdbBtn
+          [color]="personalForm.valid ? 'success' : 'danger'"
+          [disabled]="personalForm.invalid"
+          mdbWavesEffect
+          matStepperNext
+        >
+          Next
+        </button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>Do you want to submit</p>
+    <div class="col-md-12">
+      <button
+        mdbBtn
+        type="button"
+        color="primary"
+        mdbWavesEffect
+        matStepperPrevious
+      >
+        Back
+      </button>
+      <button
+        mdbBtn
+        type="button"
+        color="success"
+        (click)="onSubmit()"
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>

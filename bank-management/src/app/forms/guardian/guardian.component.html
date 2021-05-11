@@ -1,0 +1,38 @@
+<div>
+  <fieldset>
+    <legend>Guardian</legend>
+
+    <div [formGroup]="parentGroupForm">
+      <div formGroupName="guardian">
+        <div class="container">
+          <div class="parent-box d-flex justify-content-start flex-wrap">
+            <div class="type-box">
+              <mat-form-field appearance="outline">
+                <mat-label>Type</mat-label>
+                <mat-select formControlName="type">
+                  <mat-option *ngFor="let type of guardianTypes" [value]="type">
+                    {{ type }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="name-box">
+              <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name" />
+                <mat-error
+                  *ngIf="
+                    !guardianForm.get('name')!.valid &&
+                    guardianForm.get('name')!.touched
+                  "
+                >
+                  should be more than 4 characters
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>

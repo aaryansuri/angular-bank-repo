@@ -1,0 +1,38 @@
+.branch-name-box,
+.deposit-amount-box,
+.id-number-box,
+.reference-acc-name-box,
+.reference-acc-num-box,
+.reference-address-box {
+  width: 30%;
+  min-width: 200px;
+}
+
+
+.id-type-box,
+.account-type-box {
+  width: 20%;
+  min-width: 200px;
+}
+
+.account-type-box mat-form-field,
+.branch-name-box mat-form-field,
+.deposit-amount-box mat-form-field,
+.id-type-box mat-form-field,
+.id-number-box mat-form-field,
+.reference-acc-name-box mat-form-field,
+.reference-acc-num-box mat-form-field,
+.reference-address-box mat-form-field {
+  width: 80%;
+}
+
+fieldset {
+  border: 2px solid rgb(241, 86, 133);
+}
+
+legend {
+  width: auto;
+  margin-left: 1rem;
+  padding: 0 10px;
+  color: black;
+}

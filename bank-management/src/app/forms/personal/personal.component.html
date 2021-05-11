@@ -1,0 +1,135 @@
+<div>
+  <fieldset>
+    <legend>Personal</legend>
+
+    <div [formGroup]="parentGroupForm">
+      <div formGroupName="personal">
+        <div class="container">
+          <div class="parent-box d-flex justify-content-start flex-wrap">
+            <div class="name-box">
+              <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name" />
+                <mat-error
+                  *ngIf="
+                    personalForm.controls['name'].invalid &&
+                    personalForm.controls['name'].touched
+                  "
+                >
+                  invalid name
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="password-box">
+              <mat-form-field appearance="outline">
+                <mat-label>Set password</mat-label>
+                <input
+                  matInput
+                  formControlName="password"
+                  [type]="passwordHide ? 'password' : 'text'"
+                />
+                <mat-error
+                  *ngIf="
+                    !personalForm.controls['password'].valid &&
+                    personalForm.controls['password'].touched
+                  "
+                >
+                  uppercase,lowercase,special,number
+                </mat-error>
+                <button
+                  mat-icon-button
+                  matSuffix
+                  type="button"
+                  (click)="passwordHide = !passwordHide"
+                  [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="passwordHide"
+                >
+                  <mat-icon>{{
+                    passwordHide ? "visibility_off" : "visibility"
+                  }}</mat-icon>
+                </button>
+              </mat-form-field>
+            </div>
+            <div class="email-box">
+              <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" />
+                <mat-error
+                  *ngIf="
+                    !personalForm.controls['email'].valid &&
+                    personalForm.controls['email'].touched
+                  "
+                >
+                  invalid email
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="dob-box">
+              <mat-form-field appearance="outline">
+                <mat-label>Date of birth</mat-label>
+                <input
+                  matInput
+                  formControlName="dob"
+                  [min]="minDate"
+                  [max]="maxDate"
+                  form
+                  [matDatepicker]="picker"
+                />
+                <mat-datepicker-toggle
+                  matSuffix
+                  [for]="picker"
+                ></mat-datepicker-toggle>
+                <mat-datepicker touchUi #picker></mat-datepicker>
+                <mat-error
+                  *ngIf="
+                    personalForm.get('dob')!.hasError('required') &&
+                    personalForm.controls['dob'].touched
+                  "
+                >
+                  Date of birth required.
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="gender-box d-flex align-items-center">
+              <mat-radio-group formControlName="gender">
+                <mat-radio-button
+                  *ngFor="let gender of genders"
+                  [value]="gender"
+                  >{{ gender }}</mat-radio-button
+                >
+              </mat-radio-group>
+            </div>
+
+            <div class="marital-box">
+              <mat-form-field appearance="outline">
+                <mat-label>Marital Status</mat-label>
+                <mat-select formControlName="maritalStatus">
+                  <mat-option *ngFor="let type of maritalTypes" [value]="type">
+                    {{ type }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div class="contact-box">
+              <mat-form-field appearance="outline">
+                <mat-label>Contact Number</mat-label>
+                <input type="number" matInput formControlName="contactNo" />
+                <mat-error
+                  *ngIf="
+                    !personalForm.controls['contactNo'].valid &&
+                    personalForm.controls['contactNo'].touched
+                  "
+                >
+                  should be valid 10 digits
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>

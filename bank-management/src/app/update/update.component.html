@@ -1,0 +1,53 @@
+<div class="container mt-5 mb-5">
+  <div>
+    <h1 class="text-center">
+      <p class="font-italic">Account Number</p>
+      <p class="font-weight-bold">{{ accountNumber }}</p>
+    </h1>
+  </div>
+
+  <form (ngSubmit)="onSubmit()">
+    <app-personal-form
+      [personalForm]="$any(updateForm).get('personal')"
+      [parentGroupForm]="updateForm"
+    ></app-personal-form>
+
+    <app-address
+      class="p-3"
+      [addressForm]="$any(updateForm).get('address')"
+      [parentGroupForm]="updateForm"
+    ></app-address>
+
+    <app-guardian
+      class="p-3"
+      [guardianForm]="$any(updateForm).get('guardian')"
+      [parentGroupForm]="updateForm"
+    ></app-guardian>
+
+    <app-bank-details
+      [bankDetailsForm]="$any(updateForm).get('bankDetails')"
+      [parentGroupForm]="updateForm"
+    >
+    </app-bank-details>
+
+    <button
+      mdbBtn
+      type="button"
+      [color]="updateForm.valid ? 'primary' : 'danger'"
+      mdbWavesEffect
+      [disabled]="!updateForm.valid"
+      type="submit"
+    >
+      Submit
+    </button>
+    <button
+      mdbBtn
+      type="button"
+      color="indigo"
+      (click)="updateForm.enable()"
+      mdbWavesEffect
+    >
+      Edit
+    </button>
+  </form>
+</div>

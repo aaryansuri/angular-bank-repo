@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  font-size: 0.9em;
+}
+
+.username-box {
+  width: 80%;
+}
+
+.username-box mat-form-field {
+  width: 40%;
+}
+
+mat-error {
+  margin-bottom: 10px;
+}

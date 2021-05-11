@@ -1,0 +1,86 @@
+<div
+  mdbModal
+  #basicModal="mdbModal"
+  class="modal fade left"
+  id="frameModalTop"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="myModalLabel"
+  aria-hidden="true"
+>
+  <form (ngSubmit)="onLogin()" [formGroup]="loginForm">
+    <div class="modal-dialog modal-notify modal-success" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h4 class="w-100 heading lead">Login</h4>
+        </div>
+        <div class="modal-body">
+          <div class="username-box mb-2 d-flex justify-content-center">
+            <mat-form-field appearance="outline">
+              <mat-label>Username</mat-label>
+              <input matInput formControlName="username" />
+              <mat-error *ngIf="loginForm.controls['username'].touched">
+                Please fill
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="password-box d-flex justify-content-center">
+            <mat-form-field appearance="outline">
+              <mat-label>Enter your password</mat-label>
+              <input
+                matInput
+                formControlName="password"
+                [type]="passwordHide ? 'password' : 'text'"
+              />
+              <mat-error *ngIf="loginForm.controls['password'].touched">
+                Please fill
+              </mat-error>
+              <button
+                mat-icon-button
+                matSuffix
+                type="button"
+                (click)="passwordHide = !passwordHide"
+                [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="passwordHide"
+              >
+                <mat-icon>{{
+                  passwordHide ? "visibility_off" : "visibility"
+                }}</mat-icon>
+              </button>
+            </mat-form-field>
+          </div>
+          <div>
+            <ngb-alert
+              *ngIf="wrongCredentials"
+              type="danger"
+              [dismissible]="false"
+              >Wrong credentials please try again</ngb-alert
+            >
+          </div>
+        </div>
+        <div class="modal-footer d-flex justify-content-center">
+          <button
+            mdbBtn
+            color="success"
+            mdbWavesEffect
+            [disabled]="!loginForm.valid"
+            type="submit"
+          >
+            Login
+          </button>
+        </div>
+        <p class="d-flex justify-content-center">
+          dont have an account?
+          <a
+            class="ml-2"
+            [routerLink]="['/register']"
+            routerLinkActive="router-link-active"
+            ><strong>Register here</strong></a
+          >
+        </p>
+        <mat-progress-bar *ngIf="isLogging" mode="buffer"></mat-progress-bar>
+      </div>
+    </div>
+  </form>
+</div>

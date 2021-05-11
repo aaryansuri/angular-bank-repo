@@ -1,0 +1,158 @@
+<div>
+  <fieldset>
+    <legend>Account</legend>
+
+    <div [formGroup]="parentGroupForm">
+      <div formGroupName="bankDetails">
+        <div class="container">
+          <div
+            class="parent-box d-flex flex-column justify-content-start flex-wrap"
+          >
+            <div
+              formGroupName="account"
+              class="box1 d-flex justify-content-start flex-wrap"
+            >
+              <div class="account-type-box">
+                <mat-form-field appearance="outline">
+                  <mat-label>Type</mat-label>
+                  <mat-select
+                    formControlName="type"
+                    (ngModelChange)="changeDeposit()"
+                  >
+                    <mat-option
+                      *ngFor="let type of accountTypes"
+                      [value]="type"
+                    >
+                      {{ type | uppercase }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+
+              <div class="branch-name-box">
+                <mat-form-field appearance="outline">
+                  <mat-label>Branch Name</mat-label>
+                  <input matInput formControlName="branchName" />
+                  <mat-error
+                    *ngIf="
+                      !bankDetailsForm.get('account.branchName')!.valid &&
+                      bankDetailsForm.get('account.branchName')!.touched
+                    "
+                  >
+                    Enter valid branch
+                  </mat-error>
+                </mat-form-field>
+              </div>
+
+              <div class="deposit-amount-box">
+                <mat-form-field appearance="outline">
+                  <mat-label>Deposit Amount</mat-label>
+                  <input
+                    matInput
+                    type="number"
+                    min="{{ depositAmount }}"
+                    [value]="depositAmount"
+                    formControlName="depositAmount"
+                  />
+                  <mat-error
+                    *ngIf="
+                      !bankDetailsForm.get('account.depositAmount')!.valid &&
+                      bankDetailsForm.get('account.depositAmount')!.touched
+                    "
+                  >
+                    Enter valid amount
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div
+              formGroupName="idProof"
+              class="box2 d-flex justify-content-start flex-wrap"
+            >
+              <div class="id-type-box">
+                <mat-form-field appearance="outline">
+                  <mat-label>Identification type</mat-label>
+                  <mat-select formControlName="type">
+                    <mat-option *ngFor="let type of idTypes" [value]="type">
+                      {{ type }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+
+              <div class="id-number-box">
+                <mat-form-field appearance="outline">
+                  <mat-label>Identification number</mat-label>
+                  <input matInput formControlName="number" />
+                  <mat-error
+                    *ngIf="
+                      !bankDetailsForm.get('idProof.number')!.valid &&
+                      bankDetailsForm.get('idProof.number')!.touched
+                    "
+                  >
+                    Enter valid id number
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div
+              formGroupName="reference"
+              class="box3 d-flex justify-content-start flex-wrap"
+            >
+              <div class="reference-acc-name-box">
+                <mat-form-field appearance="outline">
+                  <mat-label>Reference Account Name</mat-label>
+                  <input matInput formControlName="accountName" />
+                  <mat-error
+                    *ngIf="
+                      !bankDetailsForm.get('reference.accountName')!.valid &&
+                      bankDetailsForm.get('reference.accountName')!.touched
+                    "
+                  >
+                    Enter valid acc name
+                  </mat-error>
+                </mat-form-field>
+              </div>
+
+              <div class="reference-acc-num-box">
+                <mat-form-field appearance="outline">
+                  <mat-label>Reference Account Number</mat-label>
+                  <input
+                    matInput
+                    input="number"
+                    formControlName="accountNumber"
+                  />
+                  <mat-error
+                    *ngIf="
+                      !bankDetailsForm.get('reference.accountNumber')!.valid &&
+                      bankDetailsForm.get('reference.accountNumber')!.touched
+                    "
+                  >
+                    Enter valid acc number
+                  </mat-error>
+                </mat-form-field>
+              </div>
+
+              <div class="reference-address-box">
+                <mat-form-field appearance="outline">
+                  <mat-label>Reference address</mat-label>
+                  <input matInput formControlName="address" />
+                  <mat-error
+                    *ngIf="
+                      !bankDetailsForm.get('reference.address')!.valid &&
+                      bankDetailsForm.get('reference.address')!.touched
+                    "
+                  >
+                    Enter valid
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>

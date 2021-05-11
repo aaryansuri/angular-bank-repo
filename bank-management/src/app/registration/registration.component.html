@@ -1,0 +1,56 @@
+<div class="container mt-5 mb-5">
+  <form (ngSubmit)="onSubmit()">
+    <app-personal-form
+      [personalForm]="$any(registrationForm).get('personal')"
+      [parentGroupForm]="registrationForm"
+    ></app-personal-form>
+
+    <app-address
+      class="p-3"
+      [addressForm]="$any(registrationForm).get('address')"
+      [parentGroupForm]="registrationForm"
+    ></app-address>
+
+    <app-guardian
+      class="p-3"
+      [guardianForm]="$any(registrationForm).get('guardian')"
+      [parentGroupForm]="registrationForm"
+    ></app-guardian>
+
+    <app-bank-details
+      [bankDetailsForm]="$any(registrationForm).get('bankDetails')"
+      [parentGroupForm]="registrationForm"
+    >
+    </app-bank-details>
+
+    <div class="username-box mt-3">
+      <div [formGroup]="registrationForm">
+        <mat-form-field appearance="outline">
+          <mat-label>Please set a username</mat-label>
+          <input matInput formControlName="username" />
+          <mat-error
+            *ngIf="
+              !registrationForm.controls['username'].valid &&
+              registrationForm.controls['username'].touched
+            "
+          >
+            should be more than 4 characters
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <button
+      mdbBtn
+      type="button"
+      [color]="registrationForm.valid ? 'success' : 'danger'"
+      mdbWavesEffect
+      [disabled]="!registrationForm.valid"
+      type="submit"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+
+<app-modal *ngIf="showRegistrationModal"></app-modal>

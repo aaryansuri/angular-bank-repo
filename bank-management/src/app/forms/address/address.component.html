@@ -1,0 +1,71 @@
+<div>
+  <fieldset>
+    <legend>Address</legend>
+
+    <div [formGroup]="parentGroupForm">
+      <div formGroupName="address">
+        <div class="container">
+          <div class="parent-box d-flex justify-content-between flex-wrap">
+            <div class="address-box">
+              <mat-form-field appearance="outline">
+                <mat-label>e.g 13b,lane 2</mat-label>
+                <input matInput formControlName="addressLines" />
+                <mat-error
+                  *ngIf="
+                    !addressForm.controls['addressLines'].valid &&
+                    addressForm.controls['addressLines'].touched
+                  "
+                >
+                  Please input
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="citizenship-box">
+              <mat-form-field appearance="outline">
+                <mat-label>Citizenship</mat-label>
+                <input matInput formControlName="citizenship" />
+                <mat-error
+                  *ngIf="
+                    !addressForm.controls['citizenship'].valid &&
+                    addressForm.controls['citizenship'].touched
+                  "
+                >
+                  Please input
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="country-box">
+              <mat-form-field appearance="outline">
+                <mat-label>Country</mat-label>
+                <mat-select
+                  (ngModelChange)="changeStates()"
+                  formControlName="country"
+                  placeholder="Country"
+                >
+                  <mat-option
+                    *ngFor="let country of countries"
+                    [value]="country"
+                  >
+                    {{ country }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div class="state-box">
+              <mat-form-field appearance="outline">
+                <mat-label>State</mat-label>
+                <mat-select formControlName="state">
+                  <mat-option *ngFor="let state of states" [value]="state">
+                    {{ state }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>

@@ -1,0 +1,214 @@
+{
+  "users": [
+    {
+      "personal": {
+        "name": "Aaryan Suri",
+        "password": "Suri@123",
+        "email": "aaryansuri9@gmail.com",
+        "gender": "male",
+        "dob": "2003-05-03T18:30:00.000Z",
+        "maritalStatus": "Single",
+        "contactNo": "9149883351"
+      },
+      "address": {
+        "country": "Afghanistan",
+        "state": "Badakhshan",
+        "addressLines": "Tirath Nagar",
+        "citizenship": "India"
+      },
+      "guardian": {
+        "type": "d/o",
+        "name": "adsdasda"
+      },
+      "bankDetails": {
+        "account": {
+          "type": "savings",
+          "branchName": "affadas",
+          "depositAmount": 5000
+        },
+        "idProof": {
+          "type": "aadhaar",
+          "number": "IWYPS7909L"
+        },
+        "reference": {
+          "accountName": "aasasd",
+          "accountNumber": "1111111111111111",
+          "address": "Shiv Mandir Lane Tirath Nagar"
+        }
+      },
+      "id": 1
+    },
+    {
+      "accountNumber": "5464962706454968",
+      "customerId": "R527",
+      "username": "aaryan",
+      "registrationDate": "Su/05/2021",
+      "personal": {
+        "name": "asdasd",
+        "password": "Aaryan@123",
+        "email": "aaryan@gmail.com",
+        "gender": "male",
+        "maritalStatus": "Single",
+        "contactNo": "9149883351",
+        "dob": "We/04/2003",
+        "citizenStatus": "Senior"
+      },
+      "address": {
+        "addressLines": "asdasdas",
+        "state": "Bulqizë District",
+        "country": "Albania",
+        "citizenship": "indian"
+      },
+      "guardian": {
+        "type": "d/o",
+        "name": "asdasdas"
+      },
+      "bankDetails": {
+        "account": {
+          "type": "savings",
+          "branchName": "dasdas",
+          "depositAmount": 5000
+        },
+        "idProof": {
+          "type": "PAN",
+          "number": "IWYPS7909L"
+        },
+        "reference": {
+          "accountName": "asdasdas",
+          "accountNumber": "1111111111111111",
+          "address": "dasddasda"
+        }
+      },
+      "id": 2
+    },
+    {
+      "accountNumber": "3883317811942926",
+      "customerId": "R833",
+      "username": "suri",
+      "registrationDate": "Su/05/2021",
+      "personal": {
+        "name": "Suri",
+        "password": "Suri@123",
+        "email": "aa@gmail.cpm",
+        "gender": "male",
+        "maritalStatus": "Divorced",
+        "contactNo": "9149883351",
+        "dob": "Mo/04/2003",
+        "citizenStatus": "Senior"
+      },
+      "address": {
+        "addressLines": "asdas",
+        "state": "Escaldes-Engordany",
+        "country": "Andorra",
+        "citizenship": "Indian"
+      },
+      "guardian": {
+        "type": "d/o",
+        "name": "asdasdas"
+      },
+      "bankDetails": {
+        "account": {
+          "type": "savings",
+          "branchName": "dasdas",
+          "depositAmount": 5000
+        },
+        "idProof": {
+          "type": "PAN",
+          "number": "IWYPS7909L"
+        },
+        "reference": {
+          "accountName": "aaryan",
+          "accountNumber": "1111111111111111",
+          "address": "dasdas"
+        }
+      },
+      "id": 3
+    },
+    {
+      "accountNumber": "8141449373066152",
+      "customerId": "R223",
+      "username": "asadasd",
+      "registrationDate": "Tu/05/2021",
+      "personal": {
+        "name": "Aaryan",
+        "password": "Aara@11123",
+        "email": "adasda@adas",
+        "gender": "male",
+        "maritalStatus": "Married",
+        "contactNo": 9149883351,
+        "dob": "Su/05/2003",
+        "citizenStatus": "Senior"
+      },
+      "address": {
+        "addressLines": "sdadas",
+        "state": "Ordino",
+        "country": "Andorra",
+        "citizenship": "indian"
+      },
+      "guardian": {
+        "type": "d/o",
+        "name": "dasdasda"
+      },
+      "bankDetails": {
+        "account": {
+          "type": "savings",
+          "branchName": "asdasda",
+          "depositAmount": 5001
+        },
+        "idProof": {
+          "type": "PAN",
+          "number": "IWYPS7909L"
+        },
+        "reference": {
+          "accountName": "adsadas",
+          "accountNumber": "1111111111111111",
+          "address": "sdasdas"
+        }
+      },
+      "id": 4
+    },
+    {
+      "accountNumber": "9606450861307825",
+      "customerId": "R065",
+      "username": "bottle",
+      "registrationDate": "Tu/05/2021",
+      "personal": {
+        "name": "bottle",
+        "password": "Botlle@123",
+        "email": "aaryansuri9@gmail.com",
+        "gender": "male",
+        "maritalStatus": "Divorced",
+        "contactNo": 9149883351,
+        "dob": "Mo/05/2003",
+        "citizenStatus": "Senior"
+      },
+      "address": {
+        "addressLines": "sadasd",
+        "state": "Aïn Defla Province",
+        "country": "Algeria",
+        "citizenship": "indian"
+      },
+      "guardian": {
+        "type": "d/o",
+        "name": "asdasdas"
+      },
+      "bankDetails": {
+        "account": {
+          "type": "savings",
+          "branchName": "dsadas",
+          "depositAmount": 5000
+        },
+        "idProof": {
+          "type": "PAN",
+          "number": "IWYPS7909L"
+        },
+        "reference": {
+          "accountName": "adsasdas",
+          "accountNumber": "1111111111111111",
+          "address": "dasdas"
+        }
+      },
+      "id": 5
+    }
+  ]
+}
