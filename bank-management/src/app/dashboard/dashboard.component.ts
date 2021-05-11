@@ -6,7 +6,6 @@ import { UserService } from './../service/user.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { User } from './../model/user.model';
 import { CurrencyPipe } from '@angular/common';
-import { error } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-dashboard',
