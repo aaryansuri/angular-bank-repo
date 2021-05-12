@@ -98,11 +98,13 @@
             "codeCoverageExclude": [
               "src/app/auth/**",
               "src/app/ui/modal/**",
-              "src/app/ui/navbar/**"
+              "src/app/ui/navbar/**",
+              "src/app/dashboard/**",
+              "src/app/app.component.ts"
             ],
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
-            
+
             "karmaConfig": "karma.conf.js",
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [

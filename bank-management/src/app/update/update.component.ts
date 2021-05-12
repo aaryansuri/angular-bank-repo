@@ -57,10 +57,8 @@ export class UpdateComponent implements OnInit {
   onSubmit() {
     console.log(this.updateForm.value);
 
-    this.userService.updateUser(this.updateForm.value).subscribe(
-      (data) => console.log(data),
-      (error) => console.log(error)
-    );
+    this.userService.updateUser(this.updateForm.value);
+
     this.router.navigate(['/dashboard']);
   }
 }

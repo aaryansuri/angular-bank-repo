@@ -10,6 +10,7 @@ import { Loan } from './../model/loan.model';
 import { Observable, of, throwError } from 'rxjs';
 
 import 'rxjs/add/observable/of';
+import { isJSDocThisTag } from 'typescript';
 
 @Injectable({
   providedIn: 'root',
@@ -86,20 +87,19 @@ export class UserService {
   updateUser(data: any) {
     console.log(data);
 
-    this.http
-      .get<any[]>(`${this.USERS_REST_API}`, {
-        params: {
-          accountNumber: this.getCurrentAccount(),
+    this.getUser(this.getCurrentAccount())
+      .pipe(map((users: any) => users[0]))
+      .subscribe(
+        (user: any) => {
+          return this.http
+            .patch(`${this.USERS_REST_API}/${user.id}`, data, this.httpOptions)
+            .pipe(catchError(this.handleError(data)))
+            .subscribe((res) => {
+              console.log(res);
+            });
         },
-      })
-      .pipe(map((user) => user[0].id))
-      .subscribe((id) => {
-        return this.http
-          .patch(`${this.USERS_REST_API}/${id}`, data, this.httpOptions)
-          .pipe(catchError(this.handleError(data)));
-      });
-
-    return Observable.of(throwError(new Error('Updation error')));
+        (error: any) => console.log(error)
+      );
   }
 
   getUser(accountNumber: string) {

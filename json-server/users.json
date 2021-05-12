@@ -44,19 +44,18 @@
       "username": "aaryan",
       "registrationDate": "Su/05/2021",
       "personal": {
-        "name": "asdasd",
+        "name": "Aaryan Suri",
         "password": "Aaryan@123",
         "email": "aaryan@gmail.com",
         "gender": "male",
+        "dob": "2003-05-04T18:30:00.000Z",
         "maritalStatus": "Single",
-        "contactNo": "9149883351",
-        "dob": "We/04/2003",
-        "citizenStatus": "Senior"
+        "contactNo": "9149883351"
       },
       "address": {
-        "addressLines": "asdasdas",
-        "state": "Bulqizë District",
         "country": "Albania",
+        "state": "Bulqizë District",
+        "addressLines": "asdasdas",
         "citizenship": "indian"
       },
       "guardian": {
