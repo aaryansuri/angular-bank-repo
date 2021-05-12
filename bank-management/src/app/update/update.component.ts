@@ -1,11 +1,9 @@
 import { ApplicationRef, Component, OnInit } from '@angular/core';
 import {
-  FormControl,
   FormGroup,
-  Validators,
   FormBuilder,
 } from '@angular/forms';
-import csc from 'country-state-city';
+
 import { SharedFormService } from '../forms/shared-form.service';
 import { UserService } from './../service/user.service';
 import { User } from './../model/user.model';
